@@ -1,5 +1,6 @@
 package org.repo;
 
+import org.exceptions.PhoneNumberNotFoundException;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class PhoneNumberStatusRepositoryTest {
     }
 
     @Test
-    public void activateCustomerPhoneNumber() {
+    public void activateCustomerPhoneNumber() throws PhoneNumberNotFoundException {
         PhoneNumberStatusRepository phoneNumberStatusRepository = new PhoneNumberStatusRepository();
         phoneNumberStatusRepository.createPhoneNumberAndStatus("9912345678");
         phoneNumberStatusRepository.activateCustomerPhoneNumber("9912345678");

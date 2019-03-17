@@ -1,5 +1,6 @@
 package org.repo;
 
+import org.exceptions.InvalidCustomerIdException;
 import org.domain.CustomerInfo;
 
 import java.util.*;
@@ -30,8 +31,12 @@ public class CustomerRepository {
         customerInfoHashMap.get(customerId).addPhoneNumber(customerPhoneNumber);
     }
 
-    public List<String> getAllPhoneNumbers(int customerId) {
-        return customerInfoHashMap.get(customerId).getCustomerPhoneNumbersList();
+    public List<String> getAllPhoneNumbers(int customerId) throws InvalidCustomerIdException {
+        try {
+            return customerInfoHashMap.get(customerId).getCustomerPhoneNumbersList();
+        } catch (NullPointerException nullPointerException) {
+            throw new InvalidCustomerIdException("Customer ID Does not exist");
+        }
     }
 
     public void removeCustomer(int customerId) {

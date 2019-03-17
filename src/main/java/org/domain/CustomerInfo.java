@@ -22,10 +22,6 @@ public class CustomerInfo {
         return customerId;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
     public void addPhoneNumber(String customerPhoneNumber) {
         customerPhoneNumberList.add(customerPhoneNumber);
     }

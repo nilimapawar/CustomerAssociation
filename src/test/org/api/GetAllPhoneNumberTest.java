@@ -1,8 +1,9 @@
-package org.api.phonenumber;
+package org.api;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.exceptions.InvalidCustomerIdException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class GetAllPhoneNumberTest {
     }
 
     @After
-    public void cleanup() {
+    public void cleanup() throws InvalidCustomerIdException {
         customerPhoneNumbers.remove(1);
         customerPhoneNumbers.remove(2);
         customerPhoneNumbers.remove(3);
