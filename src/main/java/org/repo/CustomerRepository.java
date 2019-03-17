@@ -18,7 +18,7 @@ public class CustomerRepository {
         Collection<CustomerInfo> allCustomers = customerInfoHashMap.values();
         List<String> allPhoneNumbers = new ArrayList<String>();
         for (CustomerInfo currentCustomer:allCustomers) {
-            List<String> customerPhoneNumbers = currentCustomer.getCustomerPhoneNumbers();
+            List<String> customerPhoneNumbers = currentCustomer.getCustomerPhoneNumbersList();
             for (String currentNumber: customerPhoneNumbers) {
                 allPhoneNumbers.add(currentNumber);
             }
@@ -32,5 +32,9 @@ public class CustomerRepository {
 
     public void updatePhoneNumber(int customerId, String customerPhoneNumber) {
         customerInfoHashMap.get(customerId).addPhoneNumber(customerPhoneNumber);
+    }
+
+    public List<String> getAllPhoneNumbers(int customerId) {
+        return customerInfoHashMap.get(customerId).getCustomerPhoneNumbersList();
     }
 }

@@ -22,4 +22,9 @@ public class CustomerPhoneNumbers {
         customerRepository.addNewCustomerToMap(customerInfo);
 
     }
+
+    public List<String> getAllPhoneNumbers(int customerId) {
+        CustomerRepository customerRepository = new CustomerRepository();
+        return customerRepository.getAllPhoneNumbers(customerId);
+    }
 }
