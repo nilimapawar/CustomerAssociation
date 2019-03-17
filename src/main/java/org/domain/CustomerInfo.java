@@ -8,6 +8,7 @@ public class CustomerInfo {
     private int customerId;
     private String customerName;
     private List<String> customerPhoneNumberList;
+    private boolean status;
 
     public CustomerInfo(int customerId, String customerName, String customerPhoneNumber) {
 

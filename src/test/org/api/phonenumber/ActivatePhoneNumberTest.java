@@ -9,21 +9,20 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class GetAllPhoneNumbersForACustomerTest {
+public class ActivatePhoneNumberTest {
     CustomerPhoneNumbers customerPhoneNumbers = new CustomerPhoneNumbers();
 
     @Before
     public void setup(){
         customerPhoneNumbers.add(1,"John Doe", "9912345678");
         customerPhoneNumbers.add(1,"John Doe", "9912345123");
+
     }
    @Test
-   public void verifyAllPhoneNumbersForACustomer(){
-       List<String> actualAllCustomerPhoneNumbers = customerPhoneNumbers.getAllPhoneNumbers(1);
-       List<String> expectedAllCustomerPhoneNumbers = new ArrayList<String>();
-       expectedAllCustomerPhoneNumbers.add("9912345678");
-       expectedAllCustomerPhoneNumbers.add("9912345123");
-       assertEquals(expectedAllCustomerPhoneNumbers,actualAllCustomerPhoneNumbers);
+   public void verifyAllPhoneNumbersOfAllCustomers(){
+       customerPhoneNumbers.activatePhoneNumber("9912345678");
+       boolean isActivated = customerPhoneNumbers.isPhoneNumberActive("9912345678");
+       assertEquals(true,isActivated);
    }
 
    @After

@@ -2,14 +2,10 @@ package org.repo;
 
 import org.domain.CustomerInfo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class CustomerRepository {
-    static HashMap<Integer,CustomerInfo> customerInfoHashMap = new HashMap<Integer, CustomerInfo>();
-
+    private static HashMap<Integer,CustomerInfo> customerInfoHashMap = new HashMap<Integer, CustomerInfo>();
     public void addNewCustomerToMap(CustomerInfo customerInfo) {
         customerInfoHashMap.put(customerInfo.getCustomerId(),customerInfo);
     }
@@ -36,5 +32,9 @@ public class CustomerRepository {
 
     public List<String> getAllPhoneNumbers(int customerId) {
         return customerInfoHashMap.get(customerId).getCustomerPhoneNumbersList();
+    }
+
+    public void removeCustomer(int customerId) {
+        customerInfoHashMap.remove(customerId);
     }
 }

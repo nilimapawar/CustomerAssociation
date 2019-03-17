@@ -16,7 +16,8 @@ public class CustomerRepositoryTest {
         CustomerRepository customerRepository = new CustomerRepository();
         customerRepository.addNewCustomerToMap(customerInfo);
         assertEquals(true,customerRepository.doesCustomerExist(1));
-        assertEquals(false,customerRepository.doesCustomerExist(2));
+        customerRepository.removeCustomer(1);
+        assertEquals(false,customerRepository.doesCustomerExist(1));
     }
 
     @Test
